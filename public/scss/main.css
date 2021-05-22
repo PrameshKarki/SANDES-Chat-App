@@ -1,0 +1,186 @@
+@font-face {
+  font-family: Poppins-Regular;
+  src: url("../fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url("../fonts/Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url("../fonts/Poppins-Bold.ttf");
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url("../fonts/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: Poppins-Italic;
+  src: url("../fonts/Poppins-Italic.ttf");
+}
+
+:root {
+  --primary-color:rgb(16, 151, 241);
+  --large-text:2.5rem;
+  --medium-text:2rem;
+  --small-text:1.8rem;
+}
+
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Poppins-Regular;
+  line-height: 1.4;
+  scrollbar-color: var(--primary-color);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.login-form-container {
+  width: inherit;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login-form-container .login-form {
+  width: 35rem;
+  height: 60rem;
+  margin-top: 5rem;
+  padding: 5rem 2rem;
+  text-align: center;
+  -webkit-box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+}
+
+.login-form-container .login-form .login-header h1 {
+  font-size: var(--large-text);
+}
+
+.login-form-container .login-form .login-main {
+  margin: 5rem 0;
+}
+
+.login-form-container .login-form .login-main input[type="email"], .login-form-container .login-form .login-main input[type="password"] {
+  width: 100%;
+  height: 4rem;
+  font-size: var(--medium-text);
+  margin-bottom: 2rem;
+  border: none;
+  border-bottom: 0.15rem solid grey;
+  outline: none;
+}
+
+.login-form-container .login-form .login-main input[type="email"]:hover, .login-form-container .login-form .login-main input[type="email"]:focus, .login-form-container .login-form .login-main input[type="password"]:hover, .login-form-container .login-form .login-main input[type="password"]:focus {
+  border-color: var(--primary-color);
+}
+
+.login-form-container .login-form .login-footer {
+  font-size: var(--small-text);
+}
+
+.login-form-container .login-form .login-footer p a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.signup-form-container {
+  width: inherit;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.signup-form-container .signup-form {
+  width: 35rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+  -webkit-box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+}
+
+.signup-form-container .signup-form .signup-header h1 {
+  font-size: var(--large-text);
+}
+
+.signup-form-container .signup-form .signup-header h2 {
+  font-size: var(--medium-text);
+}
+
+.signup-form-container .signup-form .signup-header p {
+  font-size: var(--small-text);
+  font-family: Poppins-Italic;
+  margin-top: 1rem;
+}
+
+.signup-form-container .signup-form .signup-main {
+  margin: 2rem 0;
+}
+
+.signup-form-container .signup-form .signup-main input[type="text"], .signup-form-container .signup-form .signup-main input[type="email"], .signup-form-container .signup-form .signup-main input[type="password"] {
+  width: 100%;
+  height: 4rem;
+  font-size: var(--medium-text);
+  margin-bottom: 2rem;
+  border: none;
+  border-bottom: 0.15rem solid grey;
+  outline: none;
+}
+
+.signup-form-container .signup-form .signup-main input[type="text"]:hover, .signup-form-container .signup-form .signup-main input[type="text"]:focus, .signup-form-container .signup-form .signup-main input[type="email"]:hover, .signup-form-container .signup-form .signup-main input[type="email"]:focus, .signup-form-container .signup-form .signup-main input[type="password"]:hover, .signup-form-container .signup-form .signup-main input[type="password"]:focus {
+  border-color: var(--primary-color);
+}
+
+.signup-form-container .signup-form .signup-footer {
+  font-size: var(--small-text);
+}
+
+.signup-form-container .signup-form .signup-footer p a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.btn {
+  display: block;
+  height: 5rem;
+  font-size: var(--medium-text);
+  border-radius: 4rem;
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  -webkit-box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+}
+
+.btn-login, .btn-signup {
+  width: 25rem;
+  background-color: var(--primary-color);
+}
+
+.btn-center {
+  margin: 3rem auto 0 auto;
+}
+/*# sourceMappingURL=main.css.map */

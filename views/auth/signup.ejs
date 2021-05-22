@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= pageTitle %>
+    </title>
+    <link rel="stylesheet" href="/scss/main.css">
+</head>
+
+<body>
+        <div class="signup-form-container">
+        <div class="signup-form">
+            <div class="signup-header">
+                <h1>SANDES</h1>
+                <div class="logo-container">
+                    <img src="images/blood.png" alt="logo">
+                </div>
+                <h2>Create your account:</h2>
+                <p>Please provide valid information to create your account</p>
+            </div>
+            <div class="signup-main">
+                <form action="/signup" method="POST" name="signup-form">
+                    <input type="text" name="firstName" placeholder="First Name" required>
+                    <input type="text" name="lastName" placeholder="lastName" required>
+                    <input type="text" name="contactNumber" placeholder="Contact Number" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required>
+                    <button type="submit" class="btn btn-signup btn-center">Sign Up</button>
+                </form>
+            </div>
+            <div class="signup-footer">
+                <p>Do you have an account? <a href="/login">Log In</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

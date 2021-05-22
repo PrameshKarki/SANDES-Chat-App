@@ -1,0 +1,33 @@
+// Reset css default properties
+@import "reset";
+
+//Login Page
+@import "login";
+
+//Signup Page
+@import "signup";
+
+.btn{
+    display: block;
+    height:5rem;
+    font-size: var(--medium-text);
+    border-radius:4rem;
+    border:none;
+    outline:none;
+    color:white;
+    cursor: pointer;
+    
+    &:hover{
+        box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25); 
+    }
+}
+
+.btn-login,.btn-signup{
+    width:25rem;
+    background-color:var(--primary-color);
+}
+
+.btn-center{
+    margin:3rem auto 0 auto;
+
+} 
