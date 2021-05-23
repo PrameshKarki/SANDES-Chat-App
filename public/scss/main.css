@@ -1,4 +1,9 @@
 @font-face {
+  font-family: Abhinav;
+  src: url("../fonts/Abhinav Regular.ttf");
+}
+
+@font-face {
   font-family: Poppins-Regular;
   src: url("../fonts/Poppins-Regular.ttf");
 }
@@ -28,6 +33,7 @@
   --large-text:2.5rem;
   --medium-text:2rem;
   --small-text:1.8rem;
+  --dark-white:#f8f8f8;
 }
 
 *, *::after, *::before {
@@ -42,6 +48,7 @@
 
 html {
   font-size: 62.5%;
+  overflow: hidden;
 }
 
 .login-form-container {
@@ -67,6 +74,15 @@ html {
 }
 
 .login-form-container .login-form .login-header h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: var(--large-text);
 }
 
@@ -95,6 +111,442 @@ html {
 .login-form-container .login-form .login-footer p a {
   text-decoration: none;
   color: var(--primary-color);
+}
+
+main.join-room-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 2rem 4.5rem;
+}
+
+main.join-room-container .join-room {
+  position: relative;
+  width: 22rem;
+  height: 25rem;
+  padding: 2rem 0;
+  -webkit-box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+main.join-room-container .join-room h2 {
+  font-size: var(--large-text);
+}
+
+main.join-room-container .join-room .icon {
+  margin: 2rem 0;
+}
+
+main.join-room-container .join-room .icon .fa-sign-in-alt {
+  font-size: 7rem;
+  color: var(--primary-color);
+}
+
+main.join-room-container .join-room a {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 2rem;
+  color: white;
+  line-height: 4.2rem;
+  text-decoration: none;
+}
+
+section#room-id {
+  position: relative;
+  min-height: 90vh;
+}
+
+section#room-id form {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 5rem;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+section#room-id form input[type="text"] {
+  display: block;
+  width: 35rem;
+  height: 5rem;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  margin: 0 2rem;
+  padding: 0 2rem;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.25);
+  -ms-flex-negative: 2;
+      flex-shrink: 2;
+}
+
+section#room-id form button[type="submit"] {
+  display: inline-block;
+  width: 15rem;
+  background-color: var(--primary-color);
+  color: white;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+section#room-id .rules-container {
+  width: 100%;
+  max-width: 90%;
+  position: absolute;
+  top: 15rem;
+  left: 7rem;
+}
+
+section#room-id .rules-container h1 {
+  font-size: var(--large-text);
+}
+
+section#room-id .rules-container p {
+  font-size: var(--medium-text);
+  margin: 0.5rem 0;
+}
+
+section#room-id .rules-container ul li {
+  font-size: var(--small-text);
+  margin: 1rem 0;
+}
+
+@media only screen and (max-width: 600px) {
+  section#room-id form input[type="text"] {
+    width: 60%;
+  }
+}
+
+.container {
+  width: 100%;
+  min-height: 90vh;
+  outline: 1px solid red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .chat-container {
+  width: 110rem;
+  height: 60rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid blue;
+}
+
+.container .chat-container .sidebar {
+  width: 35rem;
+  background: var(--dark-white);
+  border: 1px solid red;
+}
+
+.container .chat-container .sidebar .current-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 2rem;
+}
+
+.container .chat-container .sidebar .current-user .icon {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  text-align: center;
+  color: white;
+  font-size: var(--large-text);
+}
+
+.container .chat-container .sidebar .current-user .icon p {
+  line-height: 5rem;
+  font-family: Poppins-SemiBold;
+}
+
+.container .chat-container .sidebar .current-user .user-details {
+  margin-left: 2rem;
+}
+
+.container .chat-container .sidebar .current-user .user-details h3 {
+  font-size: var(--medium-text);
+  font-weight: 400;
+}
+
+.container .chat-container .sidebar .current-user .user-details p {
+  font-size: calc(var(--small-text) - 0.5rem);
+}
+
+.container .chat-container .sidebar .users-container h2 {
+  font-size: var(--medium-text);
+  margin: 2rem 0 0 1rem;
+  font-weight: 400;
+}
+
+.container .chat-container .sidebar .users-container .users-list .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 0.5rem;
+}
+
+.container .chat-container .sidebar .users-container .users-list .user .icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  text-align: center;
+  color: white;
+  font-size: var(--medium-text);
+}
+
+.container .chat-container .sidebar .users-container .users-list .user .icon p {
+  line-height: 4.4rem;
+  font-family: Poppins-SemiBold;
+}
+
+.container .chat-container .sidebar .users-container .users-list .user .user-details {
+  margin-left: 1rem;
+}
+
+.container .chat-container .sidebar .users-container .users-list .user .user-details h3 {
+  font-size: var(--medium-text);
+  font-weight: 400;
+}
+
+.container .chat-container .sidebar .users-container .users-list .user .user-details p {
+  font-size: calc(var(--small-text) - 0.5rem);
+}
+
+.container .chat-container .sidebar .users-container .users-list .user .joined-time {
+  color: grey;
+  font-size: calc(var(--small-text) - 0.5rem);
+}
+
+.container .chat-container main.chat-window {
+  width: 100%;
+  position: relative;
+  border: 1px solid green;
+}
+
+.container .chat-container main.chat-window .room-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 2rem;
+  min-height: 7rem;
+}
+
+.container .chat-container main.chat-window .room-detail .icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  text-align: center;
+  color: white;
+  font-size: var(--medium-text);
+}
+
+.container .chat-container main.chat-window .room-detail .icon p {
+  line-height: 4.4rem;
+  font-family: Poppins-SemiBold;
+}
+
+.container .chat-container main.chat-window .room-detail p.room-name {
+  font-size: var(--medium-text);
+  margin: 0 1rem;
+}
+
+.container .chat-container main.chat-window .room-detail .room-status {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: green;
+}
+
+.container .chat-container main.chat-window .message-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 62vh;
+  border: 1px solid red;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.container .chat-container main.chat-window .message-section .message-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  border: 1px solid red;
+}
+
+.container .chat-container main.chat-window .message-section .message-container .message {
+  position: relative;
+  width: 30rem;
+  margin: 3rem 0 1rem 4rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: white;
+  font-size: var(--medium-text);
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+}
+
+.container .chat-container main.chat-window .message-section .message-container .message .icon {
+  position: absolute;
+  bottom: -3.4rem;
+  left: -3.6rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  text-align: center;
+  color: white;
+  font-size: var(--medium-text);
+}
+
+.container .chat-container main.chat-window .message-section .message-container .message .icon p {
+  line-height: 4.4rem;
+  font-family: Poppins-SemiBold;
+}
+
+.container .chat-container main.chat-window .message-section .message-container .message .meta-data {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: absolute;
+  top: -2.2rem;
+}
+
+.container .chat-container main.chat-window .message-section .message-container .message .meta-data p {
+  font-size: var(--small-text);
+  color: grey;
+}
+
+.container .chat-container main.chat-window .message-section .incoming {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.container .chat-container main.chat-window .message-section .incoming .message {
+  margin: 3rem 4rem 1rem 0;
+  border-radius: 0.5rem;
+  border-bottom-right-radius: 0;
+}
+
+.container .chat-container main.chat-window .message-section .incoming .message .icon {
+  left: 29.5rem;
+  bottom: -3.4rem;
+}
+
+.container .chat-container main.chat-window .message-section .outgoing {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.container .chat-container main.chat-window footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  width: 100%;
+  min-height: 5rem;
+  left: 0;
+  bottom: 0;
+}
+
+.container .chat-container main.chat-window footer .input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0 2rem;
+}
+
+.container .chat-container main.chat-window footer .input-container input[type="text"] {
+  width: 90%;
+  height: 3.8rem;
+  font-size: var(--medium-text);
+  padding: 1rem 2rem;
+  border: none;
+  outline: none;
+  background-color: var(--dark-white);
+  border-radius: 3rem;
+}
+
+.container .chat-container main.chat-window footer button {
+  width: 10rem;
+  height: 3.5rem;
+  background: var(--primary-color);
+  border: none;
+  outline: none;
+  color: white;
+  font-size: var(--medium-text);
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.container .chat-container main.chat-window footer button .fa-paper-plane {
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.container .chat-container main.chat-window footer button:hover {
+  -webkit-box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
 }
 
 .signup-form-container {
@@ -159,6 +611,52 @@ html {
   color: var(--primary-color);
 }
 
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 7rem;
+  -webkit-box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0 4rem;
+}
+
+header nav .logo {
+  cursor: pointer;
+}
+
+header nav .logo a {
+  text-decoration: none;
+}
+
+header nav .signout {
+  cursor: pointer;
+}
+
+header nav .signout .fa-sign-out-alt {
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
 .btn {
   display: block;
   height: 5rem;
@@ -166,7 +664,6 @@ html {
   border-radius: 4rem;
   border: none;
   outline: none;
-  color: white;
   cursor: pointer;
 }
 
@@ -176,11 +673,29 @@ html {
 }
 
 .btn-login, .btn-signup {
+  color: white;
   width: 25rem;
   background-color: var(--primary-color);
+  margin: 3rem auto 0 auto;
 }
 
-.btn-center {
-  margin: 3rem auto 0 auto;
+.btn-join {
+  background-color: var(--primary-color);
+  height: 4.5rem;
+  width: 17rem;
+}
+
+.btn-join a {
+  text-decoration: none;
+  color: white;
+}
+
+.name {
+  font-family: Abhinav;
+  letter-spacing: 0.1rem;
+  color: var(--primary-color);
+  font-size: calc(var(--medium-text) + 2rem);
+  margin-left: 1rem;
+  font-weight: 400;
 }
 /*# sourceMappingURL=main.css.map */

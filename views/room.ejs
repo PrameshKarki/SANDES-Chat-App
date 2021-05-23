@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <%= pageTitle %>
+    </title>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/scss/main.css" />
+    <!-- link Font awesome -->
+    <script defer src="/fontawesome/js/all.js"></script>
+</head>
+
+<body>
+    <%- include("includes/header") %>
+
+        <div class="container">
+            <section class="chat-container">
+                <aside class="sidebar">
+                    <div class="current-user">
+                        <div class="icon">
+                            <p>PK</p>
+                        </div>
+                        <div class="user-details">
+                            <h3>Pramesh Karki</h3>
+                            <p>prameshkarki0407@gmail.com</p>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="users-container">
+                        <h2>Active Users:</h2>
+                        <div class="users-list">
+                            <div class="user">
+                                <div class="icon">
+                                    <p>PK</p>
+                                </div>
+                                <div class="user-details">
+                                    <h3>Laxman Pokhrel</h3>
+                                    <p>prameshkarki0407@gmail.com</p>
+                                </div>
+                                <p class="joined-time">10:12 AM</p>
+                            </div>
+                            <div class="user">
+                                <div class="icon">
+                                    <p>PK</p>
+                                </div>
+                                <div class="user-details">
+                                    <h3>Jeewan Ghimire</h3>
+                                    <p>prameshkarki0407@gmail.com</p>
+                                </div>
+                                <p class="joined-time">10:12 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <main class="chat-window">
+                    <div class="room-detail">
+                        <div class="icon">
+                            <p>W</p>
+                        </div>
+                        <p class="room-name">webTRON</p>
+                        <div class="room-status"></div>
+                    </div>
+                    <hr />
+                    <section class="message-section">
+                        <div class="message-container outgoing">
+                            <div class="message">
+                                <div class="icon">
+                                    <p>PK</p>
+                                </div>
+                                <div class="meta-data">
+                                    <!-- <p class="sender-name">Pramesh</p> -->
+                                    <p class="send-date">10:40 AM</p>
+                                </div>
+                                <p class="msg">Lorem iet.</p>
+                            </div>
+                        </div>
+                        <div class="message-container incoming">
+                            <div class="message">
+                                <div class="icon">
+                                    <p>PK</p>
+                                </div>
+                                <div class="meta-data">
+                                    <!-- <p class="sender-name">Pramesh</p> -->
+                                    <p class="send-date">10:40 AM</p>
+                                </div>
+                                <p class="msg">Lorem iet.</p>
+                            </div>
+                        </div>
+                        <div class="message-container outgoing">
+                            <div class="message">
+                                <div class="icon">
+                                    <p>PK</p>
+                                </div>
+                                <div class="meta-data">
+                                    <!-- <p class="sender-name">Pramesh</p> -->
+                                    <p class="send-date">10:40 AM</p>
+                                </div>
+                                <p class="msg">Lorem iet.</p>
+                            </div>
+                        </div>
+                        <div class="message-container incoming">
+                            <div class="message">
+                                <div class="icon">
+                                    <p>PK</p>
+                                </div>
+                                <div class="meta-data">
+                                    <!-- <p class="sender-name">Pramesh</p> -->
+                                    <p class="send-date">10:40 AM</p>
+                                </div>
+                                <p class="msg">Lorem iet.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <footer>
+                        <hr />
+                        <div class="input-container">
+                            <input type="text" name="message" id="message" placeholder="Type your message..." />
+                            <button><i class="fas fa-paper-plane"></i>Send</button>
+                        </div>
+                    </footer>
+                </main>
+            </section>
+        </div>
+</body>
+
+</html>

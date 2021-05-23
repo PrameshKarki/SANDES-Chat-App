@@ -1,11 +1,26 @@
+//Import fonts
+@import "fonts";
+
+//Import variables
+@import "variables";
+
 // Reset css default properties
 @import "reset";
 
 //Login Page
 @import "login";
 
+//Index page
+@import "index";
+
+//Room
+@import "room";
+
 //Signup Page
 @import "signup";
+
+//Header
+@import "header";
 
 .btn{
     display: block;
@@ -14,20 +29,34 @@
     border-radius:4rem;
     border:none;
     outline:none;
-    color:white;
     cursor: pointer;
-    
     &:hover{
         box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25); 
     }
 }
 
 .btn-login,.btn-signup{
+    color:white;
     width:25rem;
     background-color:var(--primary-color);
+    margin:3rem auto 0 auto;
+}
+.btn-join{
+    background-color: var(--primary-color);
+    height: 4.5rem;
+    width: 17rem;
+    a{
+        text-decoration: none;
+        color: white;
+    }
 }
 
-.btn-center{
-    margin:3rem auto 0 auto;
-
+.name{
+    font-family: Abhinav;
+    letter-spacing: 0.1rem;
+    color:var(--primary-color);
+    font-size: calc(var(--medium-text) + 2rem);
+    margin-left: 1rem;
+    font-weight: 400;
+    
 } 
