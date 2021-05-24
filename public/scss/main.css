@@ -648,6 +648,10 @@ section#room-id .rules-container ul li {
   color: var(--primary-color);
 }
 
+.invalid {
+  border-color: red !important;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -734,5 +738,42 @@ header nav .signout .fa-sign-out-alt {
   font-size: calc(var(--medium-text) + 2rem);
   margin-left: 1rem;
   font-weight: 400;
+}
+
+.bottom-alert-container {
+  position: absolute;
+  right: 5rem;
+  bottom: 5rem;
+}
+
+.alert {
+  min-width: 25rem;
+  height: 3rem;
+  padding: 1rem;
+  font-size: var(--small-text);
+  margin: 1rem 0;
+  color: #e81500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.25);
+}
+
+.close-btn {
+  border: none;
+  outline: none;
+  background: #e81500;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

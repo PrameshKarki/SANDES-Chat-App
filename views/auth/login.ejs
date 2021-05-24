@@ -31,6 +31,22 @@
             </div>
         </div>
     </div>
+    <!-- For Error -->
+    <% if(errorMessages.length>0){ %>
+        <div class="bottom-alert-container">
+            <% errorMessages.forEach(element=>{ %>
+                <div class="alert">
+                    <p class="message">
+                        <%= element %>
+                    </p>
+                    <button class="close-btn" onclick="this.parentNode.style.display='none'">
+                        X
+                    </button>
+                </div>
+
+                <%})%>
+        </div>
+        <% } %>
 </body>
 
 </html>
