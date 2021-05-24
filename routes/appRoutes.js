@@ -7,12 +7,17 @@ const router=express.Router();
 //Import controllers
 const appController=require("../controllers/appController");
 
+//Import middleware
+const {ensureAuth,ensureGuest}=require("../middlewares/is-Auth");
+
 // GET: /
-router.get("/",appController.getIndex);
+router.get("/",ensureAuth,appController.getIndex);
 
-router.get("/room-id",appController.getRoomId);
+router.get("/create-room",ensureAuth,appController.getCreateRoom);
 
-router.get("/room",appController.getRoom);
+router.get("/join-room",ensureAuth,appController.getJoinRoom);
+
+router.get("/room",ensureAuth,appController.getRoom);
 
 //Export router
 module.exports=router;

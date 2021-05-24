@@ -12,13 +12,29 @@
 </head>
 <body>
     <%- include ("./includes/header") %> 
-    <main class="join-room-container">
-        <div class="join-room">
+    <main class="menu-container">
+        <div class="menu-item">
+            <h2>Create Room</h2>
+            <div class="icon">
+                <i class="fas fa-plus"></i>
+            </div>
+            <a href="/create-room" class="btn btn-join">Create</a>
+        </div>
+
+        <div class="menu-item">
             <h2>Join Room</h2>
             <div class="icon">
                 <i class="fas fa-sign-in-alt"></i>
             </div>
-            <a href="/room-id" class="btn btn-join">Join</a>
+            <a href="/join-room" class="btn btn-join">Join</a>
+        </div>
+
+        <div class="menu-item">
+            <h2>Delete Room</h2>
+            <div class="icon">
+                <i class="fas fa-trash"></i>
+            </div>
+            <a href="/delete-room" class="btn btn-join">Delete</a>
         </div>
     </main>
 </body>

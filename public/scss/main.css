@@ -113,7 +113,7 @@ html {
   color: var(--primary-color);
 }
 
-main.join-room-container {
+main.menu-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -122,30 +122,31 @@ main.join-room-container {
   margin: 2rem 4.5rem;
 }
 
-main.join-room-container .join-room {
+main.menu-container .menu-item {
   position: relative;
   width: 22rem;
   height: 25rem;
   padding: 2rem 0;
+  margin: 2rem;
   -webkit-box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
           box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
   text-align: center;
 }
 
-main.join-room-container .join-room h2 {
+main.menu-container .menu-item h2 {
   font-size: var(--large-text);
 }
 
-main.join-room-container .join-room .icon {
+main.menu-container .menu-item .icon {
   margin: 2rem 0;
 }
 
-main.join-room-container .join-room .icon .fa-sign-in-alt {
+main.menu-container .menu-item .icon .fa-sign-in-alt, main.menu-container .menu-item .icon .fa-plus, main.menu-container .menu-item .icon .fa-trash {
   font-size: 7rem;
   color: var(--primary-color);
 }
 
-main.join-room-container .join-room a {
+main.menu-container .menu-item a {
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -156,12 +157,12 @@ main.join-room-container .join-room a {
   text-decoration: none;
 }
 
-section#room-id {
+section#join-room {
   position: relative;
   min-height: 90vh;
 }
 
-section#room-id form {
+section#join-room form {
   width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -179,7 +180,7 @@ section#room-id form {
           transform: translateX(-50%);
 }
 
-section#room-id form input[type="text"] {
+section#join-room form input[type="text"] {
   display: block;
   width: 35rem;
   height: 5rem;
@@ -195,7 +196,7 @@ section#room-id form input[type="text"] {
       flex-shrink: 2;
 }
 
-section#room-id form button[type="submit"] {
+section#join-room form button[type="submit"] {
   display: inline-block;
   width: 15rem;
   background-color: var(--primary-color);
@@ -204,7 +205,7 @@ section#room-id form button[type="submit"] {
       flex-shrink: 0;
 }
 
-section#room-id .rules-container {
+section#join-room .rules-container {
   width: 100%;
   max-width: 90%;
   position: absolute;
@@ -212,24 +213,96 @@ section#room-id .rules-container {
   left: 7rem;
 }
 
-section#room-id .rules-container h1 {
+section#join-room .rules-container h1 {
   font-size: var(--large-text);
 }
 
-section#room-id .rules-container p {
+section#join-room .rules-container p {
   font-size: var(--medium-text);
   margin: 0.5rem 0;
 }
 
-section#room-id .rules-container ul li {
+section#join-room .rules-container ul li {
   font-size: var(--small-text);
   margin: 1rem 0;
 }
 
 @media only screen and (max-width: 600px) {
-  section#room-id form input[type="text"] {
+  section#join-room form input[type="text"] {
     width: 60%;
   }
+}
+
+section#create-room {
+  position: relative;
+  min-height: 90vh;
+}
+
+section#create-room form {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 5rem;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+section#create-room form input[type="text"] {
+  display: block;
+  width: 35rem;
+  height: 5rem;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  margin: 0 2rem;
+  padding: 0 2rem;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.25);
+  -ms-flex-negative: 2;
+      flex-shrink: 2;
+}
+
+section#create-room form button[type="submit"] {
+  display: inline-block;
+  width: 15rem;
+  background-color: var(--primary-color);
+  color: white;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+section#create-room .result-container {
+  position: absolute;
+  top: 20rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 50rem;
+  padding: 1rem 0;
+  text-align: center;
+  border: 1px solid #37e937;
+}
+
+section#create-room .result-container h2 {
+  font-size: var(--medium-text);
+}
+
+section#create-room .result-container p {
+  font-size: var(--small-text);
+}
+
+section#create-room .result-container #room-id {
+  font-weight: 600;
 }
 
 .container {

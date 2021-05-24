@@ -1,12 +1,13 @@
-main.join-room-container{
+main.menu-container{
     display: flex;
     flex-wrap: wrap;
     margin:2rem 4.5rem;
-    .join-room{
+    .menu-item{
         position: relative;
         width:22rem;
         height:25rem;
         padding:2rem 0;
+        margin:2rem;
         box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25); 
         text-align: center;
         h2{
@@ -15,10 +16,11 @@ main.join-room-container{
 
         .icon{
             margin:2rem 0;
-            .fa-sign-in-alt{
+            .fa-sign-in-alt,.fa-plus,.fa-trash{
                 font-size: 7rem;
                 color:var(--primary-color);
             }
+            
         }
     
         a{
@@ -34,8 +36,8 @@ main.join-room-container{
 }
 
 
-//ROOM-ID Page
-section#room-id{
+//Join Room Page
+section#join-room{
     position: relative;
     min-height: 90vh;
     form{
@@ -93,7 +95,7 @@ section#room-id{
 }
 
 @media only screen and (max-width:600px){
-    section#room-id form input[type="text"]{
+    section#join-room form input[type="text"]{
         width: 60%;
     }
 }

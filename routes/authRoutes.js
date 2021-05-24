@@ -10,12 +10,16 @@ const User=require("../models/User");
 //Import controller
 const authController=require("../controllers/authController");
 
+//Import middleware
+const {ensureAuth,ensureGuest}=require("../middlewares/is-Auth");
+
+
 //Import validator
 const {body}=require("express-validator/check")
 
-router.get("/login",authController.getLogIn);
+router.get("/login",ensureGuest,authController.getLogIn);
 
-router.get("/signup",authController.getSignUp);
+router.get("/signup",ensureGuest,authController.getSignUp);
 
 router.post("/signup",[
     body("firstName","Invalid First Name").isAlpha().isLength({min:2,max:20}).trim(),
