@@ -22,18 +22,18 @@
                 <aside class="sidebar">
                     <div class="current-user">
                         <div class="icon">
-                            <p>PK</p>
+                            <p><%= user.icon %> </p>
                         </div>
                         <div class="user-details">
-                            <h3>Pramesh Karki</h3>
-                            <p>prameshkarki0407@gmail.com</p>
+                            <h3><%=user.firstName%> <%= user.lastName%></h3>
+                            <p><%= user.email %> </p>
                         </div>
                     </div>
                     <hr />
                     <div class="users-container">
                         <h2>Active Users:</h2>
                         <div class="users-list">
-                            <div class="user">
+                            <!-- <div class="user">
                                 <div class="icon">
                                     <p>PK</p>
                                 </div>
@@ -42,17 +42,8 @@
                                     <p>prameshkarki0407@gmail.com</p>
                                 </div>
                                 <p class="joined-time">10:12 AM</p>
-                            </div>
-                            <div class="user">
-                                <div class="icon">
-                                    <p>PK</p>
-                                </div>
-                                <div class="user-details">
-                                    <h3>Jeewan Ghimire</h3>
-                                    <p>prameshkarki0407@gmail.com</p>
-                                </div>
-                                <p class="joined-time">10:12 AM</p>
-                            </div>
+                            </div> -->
+                            
                         </div>
                     </div>
                 </aside>
@@ -61,9 +52,9 @@
                         <!-- Room Details -->
                         <div class="room-detail">
                             <div class="icon">
-                                <p>W</p>
+                                <p><%= room.name[0].toUpperCase()%></p>
                             </div>
-                            <p class="room-name">webTRON</p>
+                            <p class="room-name"><%= room.name %> </p>
                             <div class="room-status"></div>
                         </div>
                         <div class="leave-room">
@@ -136,6 +127,8 @@
                 </main>
             </section>
         </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/client.js"></script>
 </body>
 
 </html>

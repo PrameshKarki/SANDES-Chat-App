@@ -13,16 +13,18 @@
 <body>
     <%- include ("includes/header") %>
     <section id="create-room">
-        <form action="">
-            <input type="text" name="roomName" placeholder="Enter room name">
+        <form action="/create-room" method="POST">
+            <input type="text" name="roomName" placeholder="Enter room name" required minlength="6">
             <button type="submit" class="btn">Create</button>
         </form>
 
-        <div class="result-container">
-            <h2>Success!!!</h2>
-            <p>Room created successfully.</p>
-            <p>Your unique room ID:<span id="room-id">PO452S</span></p>
-        </div>
+        <% if (hasResult) { %>
+            <div class="result-container">
+                <h2>Success!!!</h2>
+                <p>Room created successfully.</p>
+                <p>Your unique room ID:<span id="room-id"><%= ID %> </span></p>
+            </div>
+        <% } %>
     </section> 
     
 </body>

@@ -17,7 +17,9 @@ router.get("/create-room",ensureAuth,appController.getCreateRoom);
 
 router.get("/join-room",ensureAuth,appController.getJoinRoom);
 
-router.get("/room",ensureAuth,appController.getRoom);
+router.post("/join-room",ensureAuth,appController.postJoinRoom);
+
+router.post("/create-room",appController.postCreateRoom);
 
 //Export router
 module.exports=router;
