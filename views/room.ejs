@@ -57,15 +57,23 @@
                     </div>
                 </aside>
                 <main class="chat-window">
-                    <div class="room-detail">
-                        <div class="icon">
-                            <p>W</p>
+                    <div class="header">
+                        <!-- Room Details -->
+                        <div class="room-detail">
+                            <div class="icon">
+                                <p>W</p>
+                            </div>
+                            <p class="room-name">webTRON</p>
+                            <div class="room-status"></div>
                         </div>
-                        <p class="room-name">webTRON</p>
-                        <div class="room-status"></div>
+                        <div class="leave-room">
+                            <form action="/leave-room">
+                            <button type="submit"> <i class="fas fa-sign-out-alt"></i> Leave </button></form>
+                        </div>
                     </div>
                     <hr />
                     <section class="message-section">
+                        <p class="user-status">Hello Pramesh,Welcome to webTRON</p>
                         <div class="message-container outgoing">
                             <div class="message">
                                 <div class="icon">
@@ -78,6 +86,7 @@
                                 <p class="msg">Lorem iet.</p>
                             </div>
                         </div>
+                        <p class="user-status">Ram joined the room.</p>
                         <div class="message-container incoming">
                             <div class="message">
                                 <div class="icon">
@@ -90,6 +99,8 @@
                                 <p class="msg">Lorem iet.</p>
                             </div>
                         </div>
+                        <p class="user-status">Ram leaved the room.</p>
+
                         <div class="message-container outgoing">
                             <div class="message">
                                 <div class="icon">
