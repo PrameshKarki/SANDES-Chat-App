@@ -689,11 +689,14 @@ header nav .logo a {
   text-decoration: none;
 }
 
-header nav .signout {
+header nav form button {
+  border: none;
+  outline: none;
+  background: none;
   cursor: pointer;
 }
 
-header nav .signout .fa-sign-out-alt {
+header nav form button .fa-sign-out-alt {
   font-size: 3rem;
   color: var(--primary-color);
 }

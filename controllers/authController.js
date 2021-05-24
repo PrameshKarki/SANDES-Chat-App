@@ -9,7 +9,8 @@ const User=require("../models/User");
 exports.getLogIn=(req,res)=>{
     res.render("auth/login",{
         pageTitle:"Log In-SANDES",
-        errorMessages:[]
+        errorMessages:req.flash("error-message"),
+        hasErrors:false
     });
 }
 
@@ -36,7 +37,6 @@ exports.postSignUp= async (req,res)=>{
         })
 
     }else{
-        
         bcrypt.hash(body.password,12).then(hashedPassword=>{
             const user=new User({
                 firstName:body.firstName,
@@ -53,7 +53,44 @@ exports.postSignUp= async (req,res)=>{
         }).catch(err=>{
             console.log(err);
         });
-    
-
     }
+}
+
+exports.postLogIn=(req,res)=>{
+    const body=JSON.parse(JSON.stringify(req.body));
+    User.findOne({email:body.email}).then(user=>{
+        if(user){
+            bcrypt.compare(body.password,user.password).then(doMatch=>{
+                if(doMatch){
+                    req.session.isLoggedIn=true;
+                    req.session.user=user;
+                    res.redirect("/");
+                }else{
+                    return res.status(422).render("auth/login",{
+                        pageTitle:"LogIn-Sandes",
+                        oldValue:body,
+                        hasErrors:true,
+                        errorMessages:["Invalid credentials"]
+                    })
+                }
+            }).catch(err=>{
+                console.log(err);
+            })
+        }else{
+            return res.status(422).render("auth/login",{
+                pageTitle:"LogIn-Sandes",
+                oldValue:body,
+                hasErrors:true,
+                errorMessages:["Invalid credentials"]
+            })
+        }
+    }).catch(err=>{
+        console.log(err);
+    })
+}
+
+exports.postSignOut=(req,res)=>{
+    req.session.destroy()
+    res.redirect("/login")
+    
 }

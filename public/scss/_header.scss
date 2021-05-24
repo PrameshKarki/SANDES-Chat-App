@@ -16,12 +16,19 @@ header{
             }
         }
 
-        .signout{
-            cursor: pointer;
-            .fa-sign-out-alt{
-                font-size:3rem;
-                color:var(--primary-color);
+        form{
+            button{
+                border:none;
+                outline:none;
+                background: none;
+                cursor: pointer;
+                .fa-sign-out-alt{
+                    font-size:3rem;
+                    color:var(--primary-color);
+                }
             }
         }
+
+        
     }
 }

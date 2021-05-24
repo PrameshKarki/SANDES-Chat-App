@@ -40,7 +40,9 @@ router.post("/signup",[
 
 ],authController.postSignUp);
 
+router.post("/login",authController.postLogIn);
 
+router.post("/sign-out",authController.postSignOut);
 
 //Export router
 module.exports=router;
