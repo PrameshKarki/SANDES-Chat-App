@@ -16,6 +16,12 @@ const flash=require("connect-flash");
 const authRoutes=require("./routes/authRoutes");
 const appRoutes=require("./routes/appRoutes");
 
+//Import format message
+const formatMessage=require("./utils/formatMessage");
+//Import user related utils
+const user=require("./utils/user");
+
+
 //Load config
 dotenv.config({path:"./config/config.env"});
 
@@ -43,7 +49,7 @@ app.use(session({
 secret:"Gautam buddha was born in nepal",
 resave:false,
 saveUninitialized:false,
-store:store
+store:store,
 }))
 
 //Set flash
@@ -60,11 +66,32 @@ app.use(appRoutes);
 const io=socket(server);
 
 io.on("connection",(socket)=>{
-    console.log("A user connected!");
-        
+
+    socket.on("joinRoom",currentUser=>{
+    //Join User to Room
+    user.joinUser(socket.id,currentUser);
+
+    socket.join(currentUser.room.name);
+
+
+    //Welcome current user
+    //Generates user-status event on->Greet,new user join and remove
+    socket.emit("user-status",formatMessage("Bot",`Hello ${currentUser.firstName},Welcome to ${currentUser.room.name}.`));
     
+    //Broadcast message to all the user
+    socket.broadcast.to(currentUser.room.name).emit("user-status",formatMessage("Bot",`${currentUser.firstName} joined the room.`));
+    })
+
+    //Receive chat message from the client
+    socket.on("chatMessage",(user)=>{
+        io.emit("message",formatMessage(user.firstName,user.msg));
+
+    })
+
+    //Broadcast message to the all user when user disconnect
     socket.on("disconnect",()=>{
-        console.log("A user disconnected");
+        // io.emit("user-status",formatMessage("User",`${currentUser.firstName} left the room.`));
+        
     })
 })
 

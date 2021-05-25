@@ -148,9 +148,9 @@
         .message-section{
             display: flex;
             flex-direction: column;
-            min-height: 62vh;
+            height: 62vh;
             overflow-x: hidden;
-            overflow-y: scroll;
+            overflow-y: auto;
             
             .user-status{
                 font-size: var(--small-text);
@@ -176,8 +176,8 @@
 
                 .icon{
                     position: absolute;
-                    bottom:-3.4rem;
-                    left:-3.6rem;
+                    bottom:-5.4rem;
+                    left:-3.3rem;
                     width: 4rem;
                     height: 4rem;
                     border-radius: 50%;
@@ -185,6 +185,7 @@
                     text-align: center;
                     color: white;
                     font-size: var(--medium-text);
+                    margin-bottom: 2rem;
                     p {
                         line-height: 4.4rem;
                         font-family: Poppins-SemiBold;
@@ -192,7 +193,7 @@
 
                 }
                 .meta-data{
-                    width: 100%;
+                    width: 80%;
                     display: flex;
                     justify-content:space-between;
                     position: absolute;

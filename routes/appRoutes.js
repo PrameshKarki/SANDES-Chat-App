@@ -21,5 +21,7 @@ router.post("/join-room",ensureAuth,appController.postJoinRoom);
 
 router.post("/create-room",appController.postCreateRoom);
 
+router.post("/leave-room",appController.postLeaveRoom);
+
 //Export router
 module.exports=router;

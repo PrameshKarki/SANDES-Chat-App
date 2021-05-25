@@ -501,9 +501,9 @@ section#create-room .result-container #room-id {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: 62vh;
+  height: 62vh;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .container .chat-container main.chat-window .message-section .user-status {
@@ -538,8 +538,8 @@ section#create-room .result-container #room-id {
 
 .container .chat-container main.chat-window .message-section .message-container .message .icon {
   position: absolute;
-  bottom: -3.4rem;
-  left: -3.6rem;
+  bottom: -5.4rem;
+  left: -3.3rem;
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -547,6 +547,7 @@ section#create-room .result-container #room-id {
   text-align: center;
   color: white;
   font-size: var(--medium-text);
+  margin-bottom: 2rem;
 }
 
 .container .chat-container main.chat-window .message-section .message-container .message .icon p {
@@ -555,7 +556,7 @@ section#create-room .result-container #room-id {
 }
 
 .container .chat-container main.chat-window .message-section .message-container .message .meta-data {
-  width: 100%;
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

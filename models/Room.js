@@ -15,12 +15,7 @@ const roomSchema=mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         required:true
     },
-    activeUsers:[{
-        userID:{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:"User"
-        }
-    }]
+    
 })
 
 //Export models

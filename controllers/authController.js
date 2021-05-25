@@ -94,3 +94,15 @@ exports.postSignOut=(req,res)=>{
     res.redirect("/login")
     
 }
+
+exports.getDetails=(req,res)=>{
+    let data={
+        ID:req.session.user._id,
+        firstName:req.session.user.firstName,
+        lastName:req.session.user.lastName,
+        email:req.session.user.email,
+        firstName:req.session.user.firstName,
+        room:req.session.user.currentRoom
+    }
+    res.json(data);
+}

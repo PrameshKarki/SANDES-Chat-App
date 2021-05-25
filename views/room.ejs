@@ -58,70 +58,18 @@
                             <div class="room-status"></div>
                         </div>
                         <div class="leave-room">
-                            <form action="/leave-room">
+                            <form action="/leave-room" method="POST">
                             <button type="submit"> <i class="fas fa-sign-out-alt"></i> Leave </button></form>
                         </div>
                     </div>
                     <hr />
-                    <section class="message-section">
-                        <p class="user-status">Hello Pramesh,Welcome to webTRON</p>
-                        <div class="message-container outgoing">
-                            <div class="message">
-                                <div class="icon">
-                                    <p>PK</p>
-                                </div>
-                                <div class="meta-data">
-                                    <!-- <p class="sender-name">Pramesh</p> -->
-                                    <p class="send-date">10:40 AM</p>
-                                </div>
-                                <p class="msg">Lorem iet.</p>
-                            </div>
-                        </div>
-                        <p class="user-status">Ram joined the room.</p>
-                        <div class="message-container incoming">
-                            <div class="message">
-                                <div class="icon">
-                                    <p>PK</p>
-                                </div>
-                                <div class="meta-data">
-                                    <!-- <p class="sender-name">Pramesh</p> -->
-                                    <p class="send-date">10:40 AM</p>
-                                </div>
-                                <p class="msg">Lorem iet.</p>
-                            </div>
-                        </div>
-                        <p class="user-status">Ram leaved the room.</p>
-
-                        <div class="message-container outgoing">
-                            <div class="message">
-                                <div class="icon">
-                                    <p>PK</p>
-                                </div>
-                                <div class="meta-data">
-                                    <!-- <p class="sender-name">Pramesh</p> -->
-                                    <p class="send-date">10:40 AM</p>
-                                </div>
-                                <p class="msg">Lorem iet.</p>
-                            </div>
-                        </div>
-                        <div class="message-container incoming">
-                            <div class="message">
-                                <div class="icon">
-                                    <p>PK</p>
-                                </div>
-                                <div class="meta-data">
-                                    <!-- <p class="sender-name">Pramesh</p> -->
-                                    <p class="send-date">10:40 AM</p>
-                                </div>
-                                <p class="msg">Lorem iet.</p>
-                            </div>
-                        </div>
-                    </section>
+                    <!-- Message Section -->
+                    <section class="message-section"></section>
                     <footer>
                         <hr />
                         <div class="input-container">
-                            <input type="text" name="message" id="message" placeholder="Type your message..." />
-                            <button><i class="fas fa-paper-plane"></i>Send</button>
+                            <input type="text" name="message" id="message" placeholder="Type your message..."/>
+                            <button id="send-btn"><i class="fas fa-paper-plane"></i>Send</button>
                         </div>
                     </footer>
                 </main>

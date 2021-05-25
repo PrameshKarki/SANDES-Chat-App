@@ -48,5 +48,8 @@ router.post("/login",authController.postLogIn);
 
 router.post("/sign-out",authController.postSignOut);
 
+router.get("/details",ensureAuth,authController.getDetails);
+
+
 //Export router
 module.exports=router;
