@@ -52,26 +52,19 @@ exports.postJoinRoom=(req,res)=>{
         if(room){
                 let icon;
                 icon=`${req.session.user.firstName[0]}${req.session.user.lastName[0]}`;
-                //Push current user id in room->activeUsers
-                // room.activeUsers.push(req.session.user._id);
+                
                 User.findOne({_id:req.session.user._id}).then(user=>{
                 
+                console.log({...req.session.user,icon});
                 //Check user is in already another room or not
                 //TODO:
-                if(!user.currentRoom || 1){
-                    user.currentRoom={ID:room.ID,name:room.name};
-                    req.session.user=user;
-                    user.save().then(()=>{
+                if(!user.isInRoom){
+                    req.session.user={...req.session.user,room:room};
                         res.render("room",{
                             pageTitle:"Room-Sandes",
-                            user:{...req.session.user._doc,icon},
+                            user:{...req.session.user,icon},
                             room:room
                         })
-
-                    }).catch(err=>{
-                        console.log(err);
-                    })
-
                 }else{
                     res.status(422).render("join-room",{
                         pageTitle:"Join Room-Sandes",

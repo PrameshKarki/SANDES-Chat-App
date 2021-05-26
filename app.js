@@ -68,18 +68,17 @@ const io=socket(server);
 io.on("connection",(socket)=>{
 
     socket.on("joinRoom",currentUser=>{
-    //Join User to Room
+    //Store information in database 
     user.joinUser(socket.id,currentUser);
-
+    //Join user to room
     socket.join(currentUser.room.name);
-
-
-    //Welcome current user
-    //Generates user-status event on->Greet,new user join and remove
-    socket.emit("user-status",formatMessage("Bot",`Hello ${currentUser.firstName},Welcome to ${currentUser.room.name}.`));
     
-    //Broadcast message to all the user
-    socket.broadcast.to(currentUser.room.name).emit("user-status",formatMessage("Bot",`${currentUser.firstName} joined the room.`));
+    // //Welcome current user
+    // //Generates user-status event on->Greet,new user join and remove
+    // socket.emit("user-status",formatMessage("Bot",`Hello ${currentUser.firstName},Welcome to ${currentUser.room.name}.`));
+    
+    // //Broadcast message to all the user
+    // socket.broadcast.to(currentUser.room.name).emit("user-status",formatMessage("Bot",`${currentUser.firstName} joined the room.`));
     })
 
     //Receive chat message from the client
@@ -94,8 +93,6 @@ io.on("connection",(socket)=>{
         
     })
 })
-
-
 
 mongoose.connect(process.env.MONGODB_URI,{
     useUnifiedTopology:true,

@@ -23,13 +23,9 @@ const userSchema=mongoose.Schema({
         type:String,
         required:true
     },
-    currentRoom:{
-        ID:{
-            type:String,
-        },
-        name:{
-            type:String
-        }
+    isInRoom:{
+        type:Boolean,
+        default:false
     }
     
 })
