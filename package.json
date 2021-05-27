@@ -1,7 +1,7 @@
 {
   "name": "sandes",
   "version": "1.0.0",
-  "description": "",
+  "description": "Chat web app made with Node JS,Mongo DB and Socket.io",
   "main": "index.js",
   "scripts": {
     "start":"node app.js",
