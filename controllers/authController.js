@@ -51,8 +51,10 @@ exports.postSignUp= async (req,res)=>{
         res.redirect("/login");
 
         }).catch(err=>{
-            console.log(err);
-        });
+            const error=new Error(err);
+            error.httpStatusCode=500;
+            throw error;
+            });
     }
 }
 
@@ -74,7 +76,10 @@ exports.postLogIn=(req,res)=>{
                     })
                 }
             }).catch(err=>{
-                console.log(err);
+                const error=new Error(err);
+                error.httpStatusCode=500;
+                throw error;
+        
             })
         }else{
             return res.status(422).render("auth/login",{
@@ -85,7 +90,10 @@ exports.postLogIn=(req,res)=>{
             })
         }
     }).catch(err=>{
-        console.log(err);
+        const error=new Error(err);
+        error.httpStatusCode=500;
+        throw error;
+
     })
 }
 

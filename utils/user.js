@@ -22,7 +22,9 @@ exports.joinUser = (socketID, currentUser) => {
         })
         
     }).catch(err=>{
-        console.log(err);
+        const error=new Error(err);
+        error.httpStatusCode=500;
+        throw error;
     })
 }
 
@@ -38,7 +40,10 @@ exports.fetchUser=(socketID)=>{
     return Relation.findOne({socketID:socketID}).then(relation=>{
         return User.findById({_id:relation.userID}).exec();
     }).catch(err=>{
-        console.log(err);
+        const error=new Error(err);
+        error.httpStatusCode=500;
+        throw error;
+
     })
 }
 
@@ -46,7 +51,9 @@ exports.fetchRoom=(socketID)=>{
     return Relation.findOne({socketID:socketID}).then(relation=>{
         return Room.findById({_id:relation.roomID}).exec();
     }).catch(err=>{
-        console.log(err);
+        const error=new Error(err);
+        error.httpStatusCode=500;
+        throw error;
     })
 }
 

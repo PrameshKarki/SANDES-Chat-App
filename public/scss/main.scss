@@ -101,3 +101,22 @@
       text-align: center;
       font-size: var(--large-text);
   }
+
+  .error {
+    text-align: center;
+    margin-top: 4rem;
+  }
+  
+  .error h1 {
+    font-size: 10rem;
+    color: red;
+    font-family: Poppins-Bold;
+  }
+  
+  .error .error-detail {
+    font-size: 5rem;
+  }
+  
+  .error p {
+    font-size: 2rem;
+  }

@@ -16,6 +16,9 @@ const flash=require("connect-flash");
 const authRoutes=require("./routes/authRoutes");
 const appRoutes=require("./routes/appRoutes");
 
+//Import controllers
+const errorController=require("./controllers/errController");
+
 //Import format message
 const formatMessage=require("./utils/formatMessage");
 //Import user related utils
@@ -63,6 +66,16 @@ app.use(bodyParser.urlencoded({extended:false}));
 //Use routes
 app.use(authRoutes);
 app.use(appRoutes);
+//Routes for 404 Page
+app.use(errorController.get404);
+//Default error handler
+app.use((error,req,res,next)=>{
+    if(!error.httpStatusCode)
+        error.httpStatusCode=500;
+        res.status(error.httpStatusCode).render("errors/500",{
+            pageTitle:"Sever Error-Sandes"
+        })
+})
 
 //Instantiate socket
 const io=socket(server);
@@ -88,7 +101,9 @@ io.on("connection",(socket)=>{
         });
 
     }).catch(err=>{
-        console.log(err);
+        const error=new Error(err);
+        error.httpStatusCode=500;
+        throw error;
     })
     })
 
@@ -113,12 +128,11 @@ io.on("connection",(socket)=>{
                 io.to(currentRoom.name).emit("room-users",users);
 
             })
-
-
-           
             
         }).catch(err=>{
-            console.log(err);
+        const error=new Error(err);
+        error.httpStatusCode=500;
+        throw error;
         });
         
         
@@ -133,7 +147,10 @@ mongoose.connect(process.env.MONGODB_URI,{
     //Listen server
     server.listen(process.env.PORT || 5000);
 }).catch(err=>{
-    console.error(err);
+    const error=new Error(err);
+    error.httpStatusCode=500;
+    throw error;
+
 })
 
 
