@@ -54,10 +54,8 @@ exports.postJoinRoom=(req,res)=>{
                 icon=`${req.session.user.firstName[0]}${req.session.user.lastName[0]}`;
                 
                 User.findOne({_id:req.session.user._id}).then(user=>{
-                
-                console.log({...req.session.user,icon});
-                //Check user is in already another room or not
-                //TODO:
+
+                    //Check user is in already another room or not
                 if(!user.isInRoom){
                     req.session.user={...req.session.user,room:room};
                         res.render("room",{
@@ -101,28 +99,6 @@ exports.postJoinRoom=(req,res)=>{
 
 
 exports.postLeaveRoom=(req,res)=>{
-    //Grab current user from database
-    User.findById(req.session.user._id).then(user=>{
-        if(user){
-            //Set user currentRoom to undefined
-            user.currentRoom=undefined;
-            req.session.user=user;
-            //Update in database
-            user.save().then(()=>{
-                res.redirect("/");
-            }).catch(err=>{
-                console.log(err);
-            })
-
-        }else{
-            //TODO:Error Handling
-            console.log("User not found in database");
-        }
-        
-
-    }).catch(err=>{
-        console.log(err);
-    })
-    
-
+    //On redirect "disconnect" event generated which handles leave room functionality
+    res.redirect("/");
 }

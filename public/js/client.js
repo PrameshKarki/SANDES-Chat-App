@@ -27,7 +27,7 @@ fetch("http://localhost:3000/details").then((data)=>{
     let msg=message.value;
     if(msg.length>0){
         //Emit message to the server
-        socket.emit("chatMessage",{...currentUser,msg});
+        socket.emit("chatMessage",msg);
         //Clear meg and focus
         message.value="";
         message.focus();
@@ -49,8 +49,8 @@ message.addEventListener("keyup",(e)=>{
 //Listen events or fire events
 
 //For message
-socket.on("message",(user)=>{
-    outputMessage(user);
+socket.on("message",(data)=>{
+    outputMessage(data);
     //Scroll Down
     messageSection.scrollTop=messageSection.scrollHeight;
 
@@ -73,20 +73,21 @@ const outputStatus=msg=>{
 }
 
 //Function to display message in DOM
-const outputMessage=(msg)=>{
+const outputMessage=(data)=>{
     const div=document.createElement("div");
+    let className=data.id===currentUser._id ? "outgoing" : "incoming";
     //Check message is either incoming or outgoing and set appropriate class here
-    div.classList="message-container outgoing";
+    div.classList=`message-container ${className}`;
     div.innerHTML=`
                             <div class="message">
                                 <div class="icon">
-                                    <p>PK</p>
+                                    <p>${data.icon}</p>
                                 </div>
                                 <div class="meta-data">
-                                    <p class="sender-name">${msg.user}</p>
-                                    <p class="send-date">${msg.time}</p>
+                                    <p class="sender-name">${data.user}</p>
+                                    <p class="send-date">${data.time}</p>
                                 </div>
-                                <p class="msg">${msg.message}</p>
+                                <p class="msg">${data.message}</p>
                             </div>
     `;
     messageSection.appendChild(div);

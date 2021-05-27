@@ -588,8 +588,8 @@ section#create-room .result-container #room-id {
 }
 
 .container .chat-container main.chat-window .message-section .incoming .message .icon {
-  left: 29.5rem;
-  bottom: -3.4rem;
+  left: 29rem;
+  bottom: -5.5rem;
 }
 
 .container .chat-container main.chat-window .message-section .outgoing {

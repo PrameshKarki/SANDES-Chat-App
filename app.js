@@ -69,27 +69,40 @@ io.on("connection",(socket)=>{
 
     socket.on("joinRoom",currentUser=>{
     //Store information in database 
-    user.joinUser(socket.id,currentUser);
-    //Join user to room
-    socket.join(currentUser.room.name);
-    
-    // //Welcome current user
-    // //Generates user-status event on->Greet,new user join and remove
-    // socket.emit("user-status",formatMessage("Bot",`Hello ${currentUser.firstName},Welcome to ${currentUser.room.name}.`));
-    
-    // //Broadcast message to all the user
-    // socket.broadcast.to(currentUser.room.name).emit("user-status",formatMessage("Bot",`${currentUser.firstName} joined the room.`));
+    user.joinUser(socket.id,currentUser).then(()=>{
+        //Join user to room
+        socket.join(currentUser.room.name);
+        
+        //Welcome current user
+        //Generates user-status event on->Greet,new user join and remove
+        socket.emit("user-status",formatMessage("Bot",`Hello ${currentUser.firstName},Welcome to ${currentUser.room.name}.`));
+        
+        //Broadcast message to all the user
+        socket.broadcast.to(currentUser.room.name).emit("user-status",formatMessage("Bot",`${currentUser.firstName} joined the room.`));
+    }).catch(err=>{
+        console.log(err);
+    })
     })
 
     //Receive chat message from the client
-    socket.on("chatMessage",(user)=>{
-        io.emit("message",formatMessage(user.firstName,user.msg));
+    socket.on("chatMessage",async (message)=>{
+        const currentUser=await user.fetchUser(socket.id);
+        const currentRoom=await user.fetchRoom(socket.id);
+        let icon=`${currentUser.firstName[0]}${currentUser.lastName[0]}`
+        io.to(currentRoom.name).emit("message",{id:currentUser._id,...formatMessage(currentUser.firstName,message),icon});
 
     })
 
     //Broadcast message to the all user when user disconnect
-    socket.on("disconnect",()=>{
-        // io.emit("user-status",formatMessage("User",`${currentUser.firstName} left the room.`));
+    socket.on("disconnect",async()=>{
+        const currentUser=await user.fetchUser(socket.id);
+        const currentRoom=await user.fetchRoom(socket.id);
+        user.disconnectUser(socket.id).then(()=>{
+            io.to(currentRoom.name).emit("user-status",formatMessage("User",`${currentUser.firstName} left the room.`));
+        }).catch(err=>{
+            console.log(err);
+        });
+        
         
     })
 })
