@@ -102,3 +102,27 @@ exports.postLeaveRoom=(req,res)=>{
     //On redirect "disconnect" event generated which handles leave room functionality
     res.redirect("/");
 }
+
+exports.getDeleteRoom=(req,res)=>{
+    Room.find({createdBy:req.session.user._id}).then(rooms=>{
+        res.render("delete-room",{
+            pageTitle:"Delete Room -Sandes",
+            errorMessages:[],
+            rooms:rooms
+        })
+
+    }).catch(err=>{
+        console.log(err);
+    })
+
+}
+
+exports.postDeleteRoom=(req,res)=>{
+    const body=JSON.parse(JSON.stringify(req.body));
+    Room.deleteOne({_id:body.roomID.trim()}).then(()=>{
+        res.redirect("/delete-room");
+
+    }).catch(err=>{
+        console.log(err);
+    })
+}

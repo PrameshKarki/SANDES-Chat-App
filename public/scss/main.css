@@ -305,6 +305,46 @@ section#create-room .result-container #room-id {
   font-weight: 600;
 }
 
+#delete-room {
+  padding: 5rem 4rem;
+}
+
+#delete-room h2 {
+  font-size: var(--large-text);
+}
+
+#delete-room .table-container {
+  width: 100%;
+}
+
+#delete-room .table-container table {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+#delete-room .table-container table tr {
+  -webkit-box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.25);
+}
+
+#delete-room .table-container table tr td {
+  padding: 2rem;
+  font-size: var(--medium-text);
+  text-align: center;
+}
+
+#delete-room .table-container table tr td .fa-trash {
+  color: red;
+  cursor: pointer;
+  font-size: 3rem;
+}
+
+#delete-room .table-container table tr td button {
+  border: none;
+  outline: none;
+  background: none;
+}
+
 .container {
   width: 100%;
   min-height: 90vh;
@@ -852,5 +892,10 @@ header nav form button .fa-sign-out-alt {
   height: 2rem;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.message {
+  text-align: center;
+  font-size: var(--large-text);
 }
 /*# sourceMappingURL=main.css.map */

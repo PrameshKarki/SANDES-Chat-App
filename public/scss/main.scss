@@ -16,6 +16,9 @@
 //Create Room Page
 @import "createRoom";
 
+//Delete Room Page
+@import "deleteRoom";
+
 //Room
 @import "room";
 
@@ -92,4 +95,9 @@
     border-radius: 50%;
     cursor: pointer;
   
+  }
+
+  .message{
+      text-align: center;
+      font-size: var(--large-text);
   }

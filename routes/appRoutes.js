@@ -23,5 +23,10 @@ router.post("/create-room",appController.postCreateRoom);
 
 router.post("/leave-room",appController.postLeaveRoom);
 
+router.get("/delete-room",appController.getDeleteRoom);
+
+router.post("/delete-room",appController.postDeleteRoom);
+
+
 //Export router
 module.exports=router;
