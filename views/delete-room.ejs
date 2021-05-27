@@ -26,6 +26,7 @@
                         <td><%= room.ID %> </td>
                         <td>
                             <form action="/delete-room" method="POST">
+                                <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                                 <input type="hidden" name="roomID" value="<%= room._id %> ">
                                 <button type="submit"><i class="fas fa-trash" title="Delete"></i></button>
                             </form>   
@@ -36,7 +37,7 @@
             </table>
         </div>
         <% }else{ %>
-            <h1 class="message">Please create room first!</h1>
+            <h1 class="not-found-message">Please create room first!</h1>
             <% } %> 
     </section>
 

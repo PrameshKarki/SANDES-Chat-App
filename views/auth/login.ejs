@@ -23,6 +23,7 @@
             </div>
             <div class="login-main">
                 <form action="/login" method="POST" name="login-form">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                     <input type="email" name="email" placeholder="Email" <% if (hasErrors) { %> value="<%=oldValue.email%>" <% } %> required>
                     <input type="password" name="password" id="password" placeholder="Password" <% if (hasErrors) { %> value="<%=oldValue.password%>" <% } %> required>
                     <button type="submit" class="btn btn-login btn-center">Log In</button>

@@ -11,6 +11,7 @@ const mongoose=require("mongoose");
 const session=require("express-session");
 const mongoDBStore=require("connect-mongodb-session")(session);
 const flash=require("connect-flash");
+const csrf=require("csurf");
 
 //Import routers
 const authRoutes=require("./routes/authRoutes");
@@ -32,6 +33,8 @@ dotenv.config({path:"./config/config.env"});
 
 //Instantiate express app
 const app=express();
+//Instantiate csrf Protection
+const csrfProtection=csrf();
 
 //Create server
 const server=http.createServer(app);
@@ -57,11 +60,20 @@ saveUninitialized:false,
 store:store,
 }))
 
+//Set body parser
+app.use(bodyParser.urlencoded({extended:false}));
+
 //Set flash
 app.use(flash());
 
-//Set body parser
-app.use(bodyParser.urlencoded({extended:false}));
+//Set csrfProtection
+app.use(csrfProtection);
+
+//Set local variables
+app.use((req,res,next)=>{
+    res.locals.csrfToken=req.csrfToken();
+    next();
+})
 
 //Use routes
 app.use(authRoutes);

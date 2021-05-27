@@ -894,7 +894,7 @@ header nav form button .fa-sign-out-alt {
   cursor: pointer;
 }
 
-.message {
+.not-found-message {
   text-align: center;
   font-size: var(--large-text);
 }

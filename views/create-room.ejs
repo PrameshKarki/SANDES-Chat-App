@@ -15,6 +15,7 @@
     <%- include ("includes/header") %>
     <section id="create-room">
         <form action="/create-room" method="POST">
+            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
             <input type="text" name="roomName" placeholder="Enter room name" required minlength="6">
             <button type="submit" class="btn">Create</button>
         </form>

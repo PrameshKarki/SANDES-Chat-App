@@ -50,6 +50,7 @@
                         </div>
                         <div class="leave-room">
                             <form action="/leave-room" method="POST">
+                            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                             <button type="submit"> <i class="fas fa-sign-out-alt"></i> Leave </button></form>
                         </div>
                     </div>

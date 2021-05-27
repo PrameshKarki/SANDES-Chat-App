@@ -25,6 +25,7 @@
             </div>
             <div class="signup-main">
                 <form action="/signup" method="POST" name="signup-form">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                     <input type="text" name="firstName" placeholder="First Name" <% if (hasErrors) { %> value="<%=oldValue.firstName%>" <% } %> class="<%= errors.find(i=>i.param==='firstName') ? 'invalid' : ' ' %>" required>
                     <input type="text" name="lastName" placeholder="lastName" <% if (hasErrors) { %> value="<%=oldValue.lastName%>" <% } %> class="<%= errors.find(i=>i.param==='lastName') ? 'invalid' : ' ' %>" required>
                     <input type="text" name="contactNumber" placeholder="Contact Number" <% if (hasErrors) { %> value="<%=oldValue.contactNumber %>" <% } %> class="<%= errors.find(i=>i.param==='contactNumber') ? 'invalid' : ' ' %>" required>
