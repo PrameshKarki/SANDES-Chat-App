@@ -5,6 +5,7 @@ const socket=io();
 const sendButton=document.getElementById("send-btn");
 const message=document.getElementById("message");
 const messageSection=document.querySelector(".message-section");
+const usersList=document.getElementById("users-list");
 
 //Current user data
 let currentUser;
@@ -97,3 +98,30 @@ const outputMessage=(data)=>{
 }).catch(err=>{
     console.log(err);
 })
+
+
+//Listen "room-users" event
+socket.on("room-users",(users)=>{
+    displayUsers(users);
+});
+
+//Method to display users in DOM
+const displayUsers=(users)=>{
+    let html="";
+    users.forEach(element=>{
+        html+=`
+        <div class="user">
+                                <div class="icon">
+                                    <p>${element.firstName[0]}${element.lastName[0]}</p>
+                                </div>
+                                <div class="user-details">
+                                    <h3>${element.firstName} ${element.lastName}</h3>
+                                    <p>${element.email}</p>
+                                </div>
+                                <p class="joined-time">${element.joinedTime}</p>
+                            </div>
+        `
+
+    })
+    usersList.innerHTML=html;
+}

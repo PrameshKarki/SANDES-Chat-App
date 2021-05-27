@@ -556,7 +556,7 @@ section#create-room .result-container #room-id {
 }
 
 .container .chat-container main.chat-window .message-section .message-container .message .meta-data {
-  width: 80%;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

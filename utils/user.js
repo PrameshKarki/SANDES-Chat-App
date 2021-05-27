@@ -4,6 +4,9 @@ const Relation = require("../models/Relation");
 const User = require("../models/User");
 const Room=require("../models/Room");
 
+//Import formatAMPM Method
+const formatTime=require("./formatTime");
+
 //Join user
 exports.joinUser = (socketID, currentUser) => {
     const relation = new Relation({
@@ -26,18 +29,10 @@ exports.joinUser = (socketID, currentUser) => {
 //Disconnect user
 //1.Remove relation
 //2.Set user isInRoom status false
-exports.disconnectUser = (socketID) => {
-    return Relation.findOne({ socketID: socketID }).then(relation => {
-        User.findById({ _id: relation.userID }).then(user => {
-            user.isInRoom = false;
-            user.save();
-            return relation.delete();
-
-        })
-    }).catch(err => {
-        console.log(err);
-    })
+exports.disconnectRelation = (socketID) => {
+    return Relation.deleteOne({socketID:socketID}).exec();
 }
+
 
 exports.fetchUser=(socketID)=>{
     return Relation.findOne({socketID:socketID}).then(relation=>{
@@ -55,3 +50,9 @@ exports.fetchRoom=(socketID)=>{
     })
 }
 
+exports.fetchRoomUsers=roomID=>{
+    return Relation.find({roomID:roomID}).populate('userID').then(users=>{
+        roomUsers=users.map(i=>{return {...i.userID._doc,joinedTime:formatTime(i.joinedTime)}});
+        return roomUsers;
+    })
+}

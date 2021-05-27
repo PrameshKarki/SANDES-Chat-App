@@ -20,6 +20,8 @@ const appRoutes=require("./routes/appRoutes");
 const formatMessage=require("./utils/formatMessage");
 //Import user related utils
 const user=require("./utils/user");
+const Relation = require("./models/Relation");
+const User = require("./models/User");
 
 
 //Load config
@@ -79,6 +81,12 @@ io.on("connection",(socket)=>{
         
         //Broadcast message to all the user
         socket.broadcast.to(currentUser.room.name).emit("user-status",formatMessage("Bot",`${currentUser.firstName} joined the room.`));
+
+        //emit event to display current room users
+        user.fetchRoomUsers(currentUser.room._id).then((users)=>{
+            io.to(currentUser.room.name).emit("room-users",users);
+        });
+
     }).catch(err=>{
         console.log(err);
     })
@@ -97,8 +105,18 @@ io.on("connection",(socket)=>{
     socket.on("disconnect",async()=>{
         const currentUser=await user.fetchUser(socket.id);
         const currentRoom=await user.fetchRoom(socket.id);
-        user.disconnectUser(socket.id).then(()=>{
-            io.to(currentRoom.name).emit("user-status",formatMessage("User",`${currentUser.firstName} left the room.`));
+        user.disconnectRelation(socket.id).then(()=>{
+            //emit event to display current room users
+            User.updateOne({_id:currentUser._id},{$set:{isInRoom:false}}).then(async()=>{
+                const users=await user.fetchRoomUsers(currentRoom._id);
+                io.to(currentRoom.name).emit("user-status",formatMessage("User",`${currentUser.firstName} left the room.`));
+                io.to(currentRoom.name).emit("room-users",users);
+
+            })
+
+
+           
+            
         }).catch(err=>{
             console.log(err);
         });

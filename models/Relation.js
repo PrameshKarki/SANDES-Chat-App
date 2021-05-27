@@ -17,6 +17,10 @@ const relationSchema=mongoose.Schema({
         required:true,
         ref:"User"
         
+    },
+    joinedTime:{
+        type:Date,
+        default:Date.now
     }
 })
 
